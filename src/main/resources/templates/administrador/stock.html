@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <title>Inventario</title>
+</head>
+ <!-- Bootstrap core CSS -->
+        <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+<body>
+   <div th:insert="~{administrador/template_admin.html::header}"></div>
+    <div class="container">
+        <a class="btn btn-primary" th:href="@{/admin/products/create}">Guardar Stok</a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Entradas</th>
+                    <th scope="col">Salidas</th>
+                    <th scope="col">Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="s:${stock}">
+                    <td th:text="${s.descripcion}"></td>
+                    <td th:text="${s.entradas}"></td>
+                    <td th:text="${s.salidas}"></td>
+                    <td th:text="${s.balance}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:insert="~{administrador/template_admin.html::footer}"></div>
+     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+        <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+ <style>
+        .body{
+            position: relative;
+        }
+        .footer{
+            position: absolute;
+            bottom:0px;
+            height: 60px;
+            width: 100%;
+        }
+    </style>
+</html>
